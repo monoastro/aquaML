@@ -316,7 +316,7 @@ class SerialMonitor:
     # Entry Point
     # ----------------------------------------------------------
 
-    def run(self, interval: float = 2.0) -> None:
+    def run(self, interval: float = 1.0) -> None:
 
         print(SEPARATOR)
         print("AquaEdge  —  Water Quality Monitor")
