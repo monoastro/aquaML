@@ -250,7 +250,7 @@ class SerialMonitor:
     # Mock Loop  (no hardware)
     # ----------------------------------------------------------
 
-    def run_mock(self, interval: float = 2.0) -> None:
+    def run_mock(self, interval: float = 1.0) -> None:
 
         print(f"Generating a new reading every {interval:.0f}s.")
         print("Press  Ctrl+C  to stop.\n")
@@ -357,7 +357,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--interval",
         type=float,
-        default=2.0,
+        default=1.0,
         metavar="SECONDS",
         help="Seconds between mock readings (default: 2).",
     )
