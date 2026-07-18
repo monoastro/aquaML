@@ -4,8 +4,7 @@ config.py
 Central configuration for the AquaEdge ML project.
 
 To switch models, change MODEL_NAME to any key in MODEL_CONFIG.
-Everything else (training, inference, serial monitor) picks it up
-automatically.
+Everything else (training, inference, serial monitor) picks it up automatically.
 """
 
 from pathlib import Path
@@ -16,50 +15,33 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 
 
-# ==========================================================
 # Project Directories
-# ==========================================================
-
 PROJECT_ROOT = Path(__file__).parent
-
 DATA_DIR  = PROJECT_ROOT / "data"
 MODEL_DIR = PROJECT_ROOT / "models"
-
 MODEL_DIR.mkdir(exist_ok=True)
 
 
-# ==========================================================
 # Dataset
-# ==========================================================
-
 DATASET_PATH = DATA_DIR / "kenya_water.csv"
-
 FEATURE_COLUMNS = [
     "pH",
     "TDS_ppm",
     "Turbidity_NTU",
     "Temperature_C",
 ]
-
 LABEL_COLUMN = "Label"
 
 
-# ==========================================================
 # Dataset Split Parameters
-# ==========================================================
-
 TEST_SIZE       = 0.20
 RANDOM_STATE    = 42
 SHUFFLE_DATASET = True
 
 
-# ==========================================================
 # Active Model
-#
 # Change this ONE line to switch between any model below.
-# ==========================================================
-
-MODEL_NAME = "KNN"
+MODEL_NAME = "DecisionTree"
 
 
 # ==========================================================
@@ -169,20 +151,14 @@ MODEL_CONFIG = {
 }
 
 
-# ==========================================================
 # Convenience Variables  (derived from MODEL_NAME above)
-# ==========================================================
-
 ACTIVE_MODEL     = MODEL_CONFIG[MODEL_NAME]
 MODEL_CLASS      = ACTIVE_MODEL["class"]
 MODEL_PARAMETERS = ACTIVE_MODEL["parameters"]
 MODEL_SAVE_PATH  = ACTIVE_MODEL["save_path"]
 
 
-# ==========================================================
 # Serial / ESP32
-# ==========================================================
-
 SERIAL_PORT      = "/dev/ttyUSB0"   # change to match your system
 SERIAL_BAUD_RATE = 115200
 SERIAL_TIMEOUT   = 2                # seconds

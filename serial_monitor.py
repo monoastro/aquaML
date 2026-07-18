@@ -359,7 +359,7 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=1.0,
         metavar="SECONDS",
-        help="Seconds between mock readings (default: 2).",
+        help="Seconds between mock readings (default: 1).",
     )
 
     parser.add_argument(

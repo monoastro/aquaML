@@ -49,31 +49,20 @@ def predict_water():
         )
 
         print()
-
         print("=" * 60)
-
-        print(
-            f"Prediction : {result['prediction']}"
-        )
-
+        print( f"Prediction : {result['prediction']}")
         print()
-
         print("Confidence")
 
         for label, probability in result["confidence"].items():
-
-            print(
-                f"{label:10}: {probability * 100:.2f}%"
-            )
+            print( f"{label:10}: {probability * 100:.2f}%")
 
         print("=" * 60)
 
         again = input("\nPredict another sample? (y/n): ")
 
         if again.lower() != "y":
-
             break
-
 
 if __name__ == "__main__":
 
